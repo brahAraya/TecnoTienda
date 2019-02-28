@@ -1,0 +1,90 @@
+{% extends 'blog/base.html' %}
+
+{% load pwa %}
+
+{% block title %} Tecnotienda - Inicio {% endblock %}
+
+{% block content %}
+<div class="row" id="productos">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4" id="disponibles">
+                <div class="col-xs-12 disponibles">
+                    <p id="help"><b>OFERTAS IMPERDIBLES</b></p>
+                </div>
+            </div>
+            <div class="col-xs-4 espacio"></div>
+            <div class="col-xs-4 espacio"></div>
+        </div>
+    </div>
+
+    <br>
+    {% if productos %}
+    {% for producto in productos|slice:":6" reversed %}
+    {% if producto.oferta %}
+    <div class="col-xs-12 col-sm-6 col-lg-4 contenedor-info">
+        <div class="row" id="info">
+            <div id="desc">
+                <p id="porcentaje"><i>-{{producto.porcentaje_desc}}%</p></i>
+            </div>
+            <div class="col-xs-6">
+                <img id="producto-foto" src="{{producto.foto.url}}" alt="producto">
+            </div>
+            <div class="col-xs-6 texto">
+                <p id="producto-nombre"><b>{{producto.nombre_producto}}</b></p>
+                <br>
+                <p id="precio-normal">${{producto.precio}}</p>
+                <p id="precio-oferta"><b>${{producto.precio_oferta}}</b></p>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+    <div class="col-xs-12 mas">
+        <button id="mas"><b>VER TODO</b></button>
+    </div>
+    {% else %}
+    <h1 id="empty">No hay productos</h1>
+    {% endif %}
+</div>
+<div class="row doblado"><br><br></div>
+{% endblock %}
+
+{% block content2 %}
+<div class="row" id="ofertas">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4" id="disponibles">
+                <div class="col-xs-12 disponibles">
+                    <p id="help"><b>PRODUCTOS</b></p>
+                </div>
+            </div>
+            <div class="col-xs-4 espacio"></div>
+            <div class="col-xs-4 espacio"></div>
+        </div>
+    </div>
+    {% if productos %}
+    {% for producto in productos %}
+    {% if producto.oferta == False %}
+    <div class="col-xs-6 col-sm-4 col-md-2 contenedor-info">
+        <div id="info2">
+            <img id="producto-foto2" src="{{producto.foto.url}}" alt="producto">
+            <div id="texto2">
+                <p id="producto-nombre2"><i>{{producto.nombre_producto}}</i></p>
+                <br>
+                <p id="precio"><b>${{producto.precio}}</b></p>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+    <div class="col-xs-12 mas">
+        <button id="mas2"><b>VER TODO</b></button>
+    </div>
+    {% else %}
+    <h1 id="empty">No hay productos</h1>
+    {% endif %}
+</div>
+{% endblock %}

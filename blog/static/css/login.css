@@ -1,0 +1,176 @@
+#cont-login{
+    padding-left: 10vw;
+    padding-right: 3vw;
+    background-color: #064FF9;
+    color: #fff;
+    box-shadow: 20px 0px 0px 0px #064FF9;
+}
+
+#titulo {
+    margin-top: 10vh;
+    text-align: center;
+    color: #fff;
+    font-size: 2.1em;
+    text-shadow: 0px 0px 5px #00000069;
+}
+
+#titulo2 {
+    margin-top: 30vh;
+    text-align: center;
+    color: #282828;
+    font-size: 2.1em;
+}
+
+form {
+    font-size: 1.15em;
+    letter-spacing: .5px;
+    text-shadow: 0px 0px 3px #00000069;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+select{
+    font-family: "Roboto", Arial;
+    font-size: 16px;
+    color: #282828;
+    box-shadow: 0px 0px 10px 0px #0000007a;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    background: #fff;
+    border: none;
+    transition: all .3s ease;
+    margin-bottom: 4vh;
+    margin-top: 2vh;
+    border-radius: 5px;
+}
+
+input[type="text"]:active,
+input[type="email"]:active,
+input[type="date"]:active,
+input[type="password"]:active,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="date"]:hover,
+input[type="password"]:hover,
+select{
+    color: #282828;
+}
+
+#ingresar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+    border-radius: 5px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-bottom: 10vh;
+    background-color: #282828;
+    color: #fff;
+    border: none;
+    transition: all .15s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+#ingresar:hover {
+    background-color: #fff;
+    color: #252525;
+}
+
+#ingresar:active {
+    top: 2px;
+}
+
+#divisor {
+    background-color: #064FF9;
+    -webkit-transform: skewX(-2.5deg);
+    -moz-transform: skewX(-2.5deg);
+    -ms-transform: skewX(-2.5deg);
+    -o-transform: skewX(-2.5deg);
+    transform: skewX(-2.5deg);
+}
+
+#fb-login {
+    background-color: #fff;
+}
+
+#loginfb {
+    padding: 20px 25px;
+    border: none;
+    background: #3b5998;
+    transition: all 0.15s ease;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none !important;
+    position: relative;
+    display: block;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loginfb:hover {
+    background: #2a4275;
+}
+
+#loginfb:active {
+    top: 2px;
+}
+
+#facebook-link {
+    text-decoration: none;
+}
+
+#facebook-link > p {
+    font-size: 1.5em;
+}
+
+#facebook-link:link {
+    color: white;
+}
+
+#facebook-link:visited {
+    color: white;
+}
+
+#facebook-link:hover {
+    color: white;
+}
+
+#facebook-link:active {
+    color: white;
+}
+
+@media screen and (max-width: 767px) {
+    #cont-login {
+        padding-right: 10vw;
+        padding-left: 10vw;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="password"],
+    select{
+        width: 95%;
+    }
+
+    #titulo2 {
+        margin-top: 10vh;
+        font-size: 2em;
+    }
+
+    #loginfb {
+        margin-bottom: 15vh;
+    }
+}

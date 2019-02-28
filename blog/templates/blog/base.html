@@ -1,0 +1,89 @@
+{% load pwa %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block static %}
+    {% progressive_web_app_meta %}
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/fontstyle.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    {% endblock %}
+    <title>{% block title %} TecnoTienda {% endblock %}</title>
+</head>
+
+{% block body %}
+
+<body>
+    <section class="container-fluid">
+        {% block header %}
+        <header class="row">
+            <div class="col-xs-6 col-sm-4 logo">
+                <img id="logo" src="{% static 'img/logo.png' %}" alt="TecnoTienda">
+            </div>
+            <div class="col-xs-12 col-sm-4 slogan">
+                <p id="slogan"><i>Vive</i> la <br><b><span id="tecnologia">tecnología</span></b></p>
+            </div>
+            {% block login %}
+            <div class="col-xs-6 col-sm-4" id="login">
+                {% if user.is_authenticated %}
+                <div id="loged">
+                    <p id="user"><b>{{ user.username }}</b></p>
+                    <button id="logout">
+                        <a class="logout-url" href="{% url 'logout' %}">
+                            <p><b>Cerrar sesión</b></p>
+                        </a>
+                    </button>
+                </div>
+                {% else %}
+                <button id="login-btn">
+                    <a class="login-url" href="{% url 'login' %}">
+                        <p id="iniciar">Iniciar sesión</p>
+                    </a>
+                </button>
+                {% endif %}
+            </div>
+            {% endblock %}
+        </header>
+        {% endblock %}
+
+        {% block nav %}
+        <nav id="menu" class="row">
+            <div class="col-xs-1 col-md-3 col-lg-4"></div>
+            <div class="col-xs-10 col-md-6 col-lg-4">
+                <div class="row menu">
+                    <a class="col-xs-4 link izquierda smooth-goto" href="#">Inicio</a>
+                    <a class="col-xs-4 link centro smooth-goto" href="#productos">Ofertas</a>
+                    <a class="col-xs-4 link derecha smooth-goto" href="#ofertas">Productos</a>
+                </div>
+            </div>
+            <div class="col-xs-1 col-md-3 col-lg-4"></div>
+        </nav>
+        {% endblock %}
+
+        {% block content %}
+        Default
+        {% endblock %}
+
+        {% block content2 %}
+        Default
+        {% endblock %}
+
+        {% block footer %}
+        <footer>
+            <p><i>Desarrollo de aplicaciones web y móvil</i></p>
+            <img id="icono" src="{% static 'img/icon.png' %}" alt="TecnoTienda">
+        </footer>
+        {% endblock %}
+    </section>
+</body>
+{% endblock %}
+
+</html>

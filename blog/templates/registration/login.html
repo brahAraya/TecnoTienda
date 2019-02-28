@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+
+{% load pwa %}
+
+{% block title %} Tecnotienda - Iniciar sesión {% endblock %}
+
+{% block login %}
+<div class="col-xs-6 col-sm-4" id="login">
+  <button id="login-btn">
+    <a class="login-url" href="{% url 'index' %}">
+      <p id="iniciar">Volver</p>
+    </a>
+  </button>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row contenedor">
+  <div class="col-xs-12 col-sm-5" id="cont-login">
+    <h2 id="titulo">Inicia sesión con tu usuario y contraseña</h2>
+    <br><br><br>
+    <form method="post">
+      {% csrf_token %}
+      <b>{{ form.as_p }}</b>
+      <br>
+      <button id="ingresar" type="submit"><b>Ingresar</b></button>
+    </form>
+  </div>
+  <div id="divisor" class="col-xs-12 col-sm-1"></div>
+  <div id="fb-login" class="col-xs-12 col-sm-6">
+    {% load socialaccount %}
+    <h2 id="titulo2">O ingresa con Facebook</h2>
+    <button id="loginfb" class="btn btn-secondary btn-block mt-5" type="submit">
+      <a id="facebook-link" class="btn btn-primary btn-block" href="{% provider_login_url "facebook" method="oauth2" %}">
+        <span class="fab fa-facebook"></span>
+        <p>Iniciar sesión con <b>facebook</b></p>
+      </a>
+    </button>
+  </div>
+</div>
+{% endblock %}
+
+{% block content2 %}{% endblock %}
